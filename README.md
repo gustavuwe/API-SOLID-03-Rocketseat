@@ -24,7 +24,7 @@ GymPass style app.
 - [ ] The check-in only can be validated by administrators.
 - [ ] The gym only can be register by administrators.
 
-## RNFs (Non-Functional requirements)
+## NFRs (Non-Functional requirements)
 
 - [ ] The password of user must be encrypted
 - [ ] The application data must be persisted in a database PostgreSQL
