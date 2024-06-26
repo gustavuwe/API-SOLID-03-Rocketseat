@@ -6,12 +6,12 @@ GymPass style app.
 
 - [x] Should be able to register
 - [x] Should be able to authenticate
-- [ ] Should be able get the profile of a logged user
+- [x] Should be able get the profile of a logged user
 - [ ] Should be able to get the number of check-ins realized by the logged user (like a daystreak)
 - [ ] The user should be able to get his own history of check-ins
 - [ ] The user should be able to search near gym's
 - [ ] The user should be able to search gym's by the name
-- [ ] The user should be able to realize a check-in in a gym
+- [x] The user should be able to realize a check-in in a gym
 - [ ] Should be able to validate the check-in of a user
 - [ ] Should be able to register a gym
 
