@@ -18,7 +18,7 @@ GymPass style app.
 ## BRs (Business Rules)
 
 - [x] The user cant be able to register with a email already used.
-- [ ] The user cant do 2 check-ins in the same day
+- [x] The user cant do 2 check-ins in the same day
 - [ ] The user cant do check-in if he isnt near of the gym (100m)
 - [ ] The check-in only can be validated until 20 minutes after created
 - [ ] The check-in only can be validated by administrators.
