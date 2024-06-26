@@ -32,6 +32,10 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
       .slice((page - 1) * 20, page * 20); // slice returns a list between A and B, so 0 and 20 gonna be 0,1,2...19,20  here i implemented a logic that if page 0: 0 * 20 = 0, 1 * 20 = 20, so i can handle the pages with this
   }
 
+  async countByUserId(userId: string) {
+    return this.items.filter((item) => item.user_id === userId).length; // slice returns a list between A and B, so 0 and 20 gonna be 0,1,2...19,20  here i implemented a logic that if page 0: 0 * 20 = 0, 1 * 20 = 20, so i can handle the pages with this
+  }
+
   async create(data: Prisma.CheckInUncheckedCreateInput) {
     const checkIn = {
       id: randomUUID(),
