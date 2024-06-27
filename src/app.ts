@@ -5,8 +5,13 @@ import { register } from "./http/controllers/register";
 import { ZodError } from "zod";
 import { appRoutes } from "./http/routes";
 import { env } from '../src/env'
+import fastifyJwt from "@fastify/jwt";
 
 export const app = Fastify();
+
+app.register(fastifyJwt, {
+  secret: env.JWT_SECRET,
+})
 
 app.register(appRoutes);
 
