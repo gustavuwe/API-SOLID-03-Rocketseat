@@ -1,5 +1,5 @@
 import { expect, describe, it, beforeEach, vi, afterEach } from "vitest";
-import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-checkins-repository";
+import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-check-ins-repository";
 import { CheckinUseCase } from "./check-in";
 import { InMemoryGymsRepositories } from "@/repositories/in-memory/in-memory-gyms-repository";
 import { Decimal } from "@prisma/client/runtime/library";
@@ -11,19 +11,19 @@ let gymsRepository: InMemoryGymsRepositories;
 let sut: CheckinUseCase;
 
 describe("Check-in Use Case", () => {
-  beforeEach( async () => {
+  beforeEach(async () => {
     checkinsRepository = new InMemoryCheckInsRepository();
     gymsRepository = new InMemoryGymsRepositories();
     sut = new CheckinUseCase(checkinsRepository, gymsRepository);
 
-    gymsRepository.items.push({
-      id: "gym-01",
-      title: "Javascript Gym",
-      description: "",
-      phone: "",
-      latitude: new Decimal(-27.2092052),
-      longitude: new Decimal(-49.6401091),
-    });
+    // gymsRepository.items.push({
+    //   id: "gym-01",
+    //   title: "Javascript Gym",
+    //   description: "",
+    //   phone: "",
+    //   latitude: new Decimal(-27.2092052),
+    //   longitude: new Decimal(-49.6401091),
+    // });
 
     await gymsRepository.create({
       id: "gym-01",
@@ -32,7 +32,7 @@ describe("Check-in Use Case", () => {
       phone: "",
       latitude: -27.2092052,
       longitude: -49.6401091,
-    })
+    });
     vi.useFakeTimers();
   });
   afterEach(() => {
