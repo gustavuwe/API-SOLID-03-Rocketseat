@@ -1,12 +1,10 @@
 import Fastify from "fastify";
-import { z } from "zod";
-import { prisma } from "./lib/prisma";
-import { register } from "./http/controllers/users/register";
 import { ZodError } from "zod";
 import { userRoutes } from "./http/controllers/users/routes";
 import { env } from "../src/env";
 import fastifyJwt from "@fastify/jwt";
 import { gymsRoutes } from "./http/controllers/gyms/routes";
+import { checkInsRoutes } from "./http/controllers/check-ins/routes";
 
 export const app = Fastify();
 
@@ -16,6 +14,7 @@ app.register(fastifyJwt, {
 
 app.register(userRoutes);
 app.register(gymsRoutes);
+app.register(checkInsRoutes)
 
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {
