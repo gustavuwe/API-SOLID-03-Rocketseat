@@ -1,19 +1,21 @@
 import Fastify from "fastify";
 import { z } from "zod";
 import { prisma } from "./lib/prisma";
-import { register } from "./http/controllers/register";
+import { register } from "./http/controllers/users/register";
 import { ZodError } from "zod";
-import { appRoutes } from "./http/routes";
-import { env } from '../src/env'
+import { userRoutes } from "./http/controllers/users/routes";
+import { env } from "../src/env";
 import fastifyJwt from "@fastify/jwt";
+import { gymsRoutes } from "./http/controllers/gyms/routes";
 
 export const app = Fastify();
 
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,
-})
+});
 
-app.register(appRoutes);
+app.register(userRoutes);
+app.register(gymsRoutes);
 
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {
@@ -22,8 +24,8 @@ app.setErrorHandler((error, _, reply) => {
       .send({ message: "Validation error.", issues: error.format() });
   }
 
-  if (env.NODE_ENV !== 'production') {
-    console.error(error)
+  if (env.NODE_ENV !== "production") {
+    console.error(error);
   } else {
     // TODO: Here we should log to an external tool like Datadog/NewRelic/Sentry
   }
