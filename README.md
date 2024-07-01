@@ -24,6 +24,7 @@ GymPass style app.
 - [x] The check-in only can be validated by administrators.
 - [x] The gym only can be register by administrators.
 
+
 ## NFRs (Non-Functional requirements)
 
 - [x] The password of user must be encrypted
